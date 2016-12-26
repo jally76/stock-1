@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Stock.Client.Console.StockServiceReference;
+using Stock.Client.Console.StockWebServiceReference;
 
 namespace Stock.Client.Console
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            //WcfConnect();
+
+            WebServiceConnect();
+        }
+
+        private static void WcfConnect()
         {
             //Step 1: Create an instance of the WCF proxy.
             StockServiceClient client = new StockServiceClient();
@@ -32,7 +40,16 @@ namespace Stock.Client.Console
             client.Close();
 
             System.Console.ReadLine();
+        }
 
+        private static void WebServiceConnect()
+        {
+            var client = new StockWebServiceSoapClient();
+            System.Console.WriteLine(client.HelloWorld());
+
+            client.Close();
+
+            System.Console.ReadLine();
         }
     }
 }

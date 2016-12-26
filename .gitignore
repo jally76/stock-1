@@ -1,3 +1,9 @@
 .vs/
 packages/
 *.user
+Stock.Host/bin/
+Stock.Host/obj/
+Stock.Client.Console/bin/
+Stock.Client.Console/obj/
+Stock.Wcf/bin/
+Stock.Wcf/obj/
