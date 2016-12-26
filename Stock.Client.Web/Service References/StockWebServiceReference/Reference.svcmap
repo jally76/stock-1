@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d8d908ef-7bc0-4b4b-af7e-863ef1f5b958" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2192c1d8-210c-4470-9b49-cb0435a5daa0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:60341/StockService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="StockService.disco" MetadataType="Disco" ID="271e9835-b0bd-462b-a218-d6e559a052d4" SourceId="1" SourceUrl="http://localhost:60341/StockService.asmx?disco" />
-    <MetadataFile FileName="StockService.wsdl" MetadataType="Wsdl" ID="647a1bbb-72e8-4f84-a716-218ce9b39c32" SourceId="1" SourceUrl="http://localhost:60341/StockService.asmx?wsdl" />
+    <MetadataFile FileName="StockService.disco" MetadataType="Disco" ID="fe130c95-7de8-4c04-88db-affdc0b2ab5a" SourceId="1" SourceUrl="http://localhost:60341/StockService.asmx?disco" />
+    <MetadataFile FileName="StockService.wsdl" MetadataType="Wsdl" ID="2385c902-60e3-4997-abe9-0d7134f23231" SourceId="1" SourceUrl="http://localhost:60341/StockService.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
