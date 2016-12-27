@@ -8,6 +8,9 @@ namespace Stock.Core.Domain
 {
     public class User
     {
+        public User()
+        {
+        }
         public User(string email, string name, string password)
         {
             Id = Guid.NewGuid();
@@ -37,6 +40,20 @@ namespace Stock.Core.Domain
         public string Salt { get; private set; }
 
         public virtual ICollection<Company> Tickers { get; set; }
+
+        public void RemoveTicker(Company ticker)
+        {
+            if (Tickers == null)
+                Tickers = new List<Company>();
+            Tickers.Remove(ticker);
+        }
+
+        public void AddTicker(Company ticker)
+        {
+            if (Tickers == null)
+                Tickers = new List<Company>();
+            Tickers.Add(ticker);
+        }
 
         public bool IsValidPassword(string password)
         {
