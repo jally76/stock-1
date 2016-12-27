@@ -43,6 +43,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Stock.WebService", "Stock.W
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.Core.Tests", "Stock.Core.Tests\Stock.Core.Tests.csproj", "{A937071C-228E-4A9A-8F39-59E54A453BA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{6E8B2347-C2AB-46C4-A6B1-5C86C45A5082}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E8B2347-C2AB-46C4-A6B1-5C86C45A5082}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E8B2347-C2AB-46C4-A6B1-5C86C45A5082}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A937071C-228E-4A9A-8F39-59E54A453BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A937071C-228E-4A9A-8F39-59E54A453BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A937071C-228E-4A9A-8F39-59E54A453BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A937071C-228E-4A9A-8F39-59E54A453BA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

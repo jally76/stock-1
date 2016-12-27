@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
@@ -8,14 +7,18 @@ namespace Stock.Core.DataAccess
 {
     public class EntityFrameworkDataProvider : DbContext, IDataProvider
     {
-        public List<T> Select<T>() where T : class
+        public EntityFrameworkDataProvider(string connectionString) : base(connectionString)
         {
-            return Set<T>().ToList();
         }
 
-        public List<T> Where<T>(Expression<Func<T, bool>> expression) where T : class
+        public IQueryable<T> Select<T>() where T : class
         {
-            return Set<T>().Where(expression).ToList();
+            return Set<T>();
+        }
+
+        public IQueryable<T> Where<T>(Expression<Func<T, bool>> expression) where T : class
+        {
+            return Set<T>().Where(expression);
         }
 
         public T SingleOrDefault<T>(Expression<Func<T, bool>> expression) where T : class
