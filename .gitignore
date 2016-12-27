@@ -11,3 +11,5 @@ Stock.Client.Web/bin/
 Stock.Client.Web/obj/
 Stock.Core/bin/
 Stock.Core/obj/
+Stock.Core.Migrations/bin/
+Stock.Core.Migrations/obj/

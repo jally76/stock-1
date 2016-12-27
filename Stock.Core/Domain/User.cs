@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
@@ -34,6 +35,8 @@ namespace Stock.Core.Domain
         [MaxLength(24), Column(TypeName = "varchar")]
         [Required]
         public string Salt { get; private set; }
+
+        public virtual ICollection<Company> Tickers { get; set; }
 
         public bool IsValidPassword(string password)
         {
