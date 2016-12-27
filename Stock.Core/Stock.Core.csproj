@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\EntityFrameworkDataProvider.cs" />
+    <Compile Include="DataAccess\IDataProvider.cs" />
     <Compile Include="Domain\Company.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Dto\TickerDto.cs" />
