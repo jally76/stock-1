@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Stock.Client.Web.StockWebServiceReference;
 using Stock.Client.Web.ViewModels;
+using Stock.Core.Dto;
 
 namespace Stock.Client.Web.Controllers
 {
