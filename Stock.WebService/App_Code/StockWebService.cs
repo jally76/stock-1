@@ -1,4 +1,8 @@
-﻿using System.Web.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Services;
+using Newtonsoft.Json;
 
 [WebService(Namespace = "http://tempuri.org/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -13,9 +17,29 @@ public class StockWebService : WebService
         //InitializeComponent(); 
     }
 
+    /// <summary>
+    /// Get stock price by code
+    /// </summary>
+    /// <param name="codes">Stock codes</param>
+    /// <example>DDD,MMM</example>
+    /// <returns></returns>
     [WebMethod]
-    public string HelloWorld() {
-        return "Hello World";
+    public string GetStockPrice(string codes)
+    {
+        var prices = new Dictionary<string, int>();
+        var codeArray = codes.Split(',');
+
+        var random = new Random();
+
+        foreach (var code in codeArray)
+        {
+            if(prices.Keys.Contains(code))
+                continue;
+            prices.Add(code, random.Next(1, 1000));
+        }
+
+        var result = JsonConvert.SerializeObject(prices);
+
+        return result;
     }
-    
 }
