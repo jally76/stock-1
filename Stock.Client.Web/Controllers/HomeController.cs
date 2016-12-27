@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Stock.Client.Web.StockWebServiceReference;
 using Stock.Client.Web.ViewModels;
 
@@ -21,7 +16,7 @@ namespace Stock.Client.Web.Controllers
             ViewBag.Message = "Your application description page.";
 
             var client = new StockWebServiceSoapClient();
-            var result = client.HelloWorld();
+            var result = client.GetStockPrice("AAA,GOOG");
             client.Close();
 
             var model = new AboutViewModel

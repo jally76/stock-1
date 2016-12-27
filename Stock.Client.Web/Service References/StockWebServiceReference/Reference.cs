@@ -15,54 +15,27 @@ namespace Stock.Client.Web.StockWebServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="StockWebServiceReference.StockWebServiceSoap")]
     public interface StockWebServiceSoap {
         
-        // CODEGEN: Generating message contract since element name HelloWorldResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        Stock.Client.Web.StockWebServiceReference.HelloWorldResponse HelloWorld(Stock.Client.Web.StockWebServiceReference.HelloWorldRequest request);
+        // CODEGEN: Generating message contract since element name codes from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetStockPrice", ReplyAction="*")]
+        Stock.Client.Web.StockWebServiceReference.GetStockPriceResponse GetStockPrice(Stock.Client.Web.StockWebServiceReference.GetStockPriceRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        System.Threading.Tasks.Task<Stock.Client.Web.StockWebServiceReference.HelloWorldResponse> HelloWorldAsync(Stock.Client.Web.StockWebServiceReference.HelloWorldRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetStockPrice", ReplyAction="*")]
+        System.Threading.Tasks.Task<Stock.Client.Web.StockWebServiceReference.GetStockPriceResponse> GetStockPriceAsync(Stock.Client.Web.StockWebServiceReference.GetStockPriceRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldRequest {
+    public partial class GetStockPriceRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/", Order=0)]
-        public Stock.Client.Web.StockWebServiceReference.HelloWorldRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetStockPrice", Namespace="http://tempuri.org/", Order=0)]
+        public Stock.Client.Web.StockWebServiceReference.GetStockPriceRequestBody Body;
         
-        public HelloWorldRequest() {
+        public GetStockPriceRequest() {
         }
         
-        public HelloWorldRequest(Stock.Client.Web.StockWebServiceReference.HelloWorldRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class HelloWorldRequestBody {
-        
-        public HelloWorldRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Stock.Client.Web.StockWebServiceReference.HelloWorldResponseBody Body;
-        
-        public HelloWorldResponse() {
-        }
-        
-        public HelloWorldResponse(Stock.Client.Web.StockWebServiceReference.HelloWorldResponseBody Body) {
+        public GetStockPriceRequest(Stock.Client.Web.StockWebServiceReference.GetStockPriceRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -71,16 +44,50 @@ namespace Stock.Client.Web.StockWebServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class HelloWorldResponseBody {
+    public partial class GetStockPriceRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string HelloWorldResult;
+        public string codes;
         
-        public HelloWorldResponseBody() {
+        public GetStockPriceRequestBody() {
         }
         
-        public HelloWorldResponseBody(string HelloWorldResult) {
-            this.HelloWorldResult = HelloWorldResult;
+        public GetStockPriceRequestBody(string codes) {
+            this.codes = codes;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetStockPriceResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetStockPriceResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Stock.Client.Web.StockWebServiceReference.GetStockPriceResponseBody Body;
+        
+        public GetStockPriceResponse() {
+        }
+        
+        public GetStockPriceResponse(Stock.Client.Web.StockWebServiceReference.GetStockPriceResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetStockPriceResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string GetStockPriceResult;
+        
+        public GetStockPriceResponseBody() {
+        }
+        
+        public GetStockPriceResponseBody(string GetStockPriceResult) {
+            this.GetStockPriceResult = GetStockPriceResult;
         }
     }
     
@@ -112,26 +119,28 @@ namespace Stock.Client.Web.StockWebServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Stock.Client.Web.StockWebServiceReference.HelloWorldResponse Stock.Client.Web.StockWebServiceReference.StockWebServiceSoap.HelloWorld(Stock.Client.Web.StockWebServiceReference.HelloWorldRequest request) {
-            return base.Channel.HelloWorld(request);
+        Stock.Client.Web.StockWebServiceReference.GetStockPriceResponse Stock.Client.Web.StockWebServiceReference.StockWebServiceSoap.GetStockPrice(Stock.Client.Web.StockWebServiceReference.GetStockPriceRequest request) {
+            return base.Channel.GetStockPrice(request);
         }
         
-        public string HelloWorld() {
-            Stock.Client.Web.StockWebServiceReference.HelloWorldRequest inValue = new Stock.Client.Web.StockWebServiceReference.HelloWorldRequest();
-            inValue.Body = new Stock.Client.Web.StockWebServiceReference.HelloWorldRequestBody();
-            Stock.Client.Web.StockWebServiceReference.HelloWorldResponse retVal = ((Stock.Client.Web.StockWebServiceReference.StockWebServiceSoap)(this)).HelloWorld(inValue);
-            return retVal.Body.HelloWorldResult;
+        public string GetStockPrice(string codes) {
+            Stock.Client.Web.StockWebServiceReference.GetStockPriceRequest inValue = new Stock.Client.Web.StockWebServiceReference.GetStockPriceRequest();
+            inValue.Body = new Stock.Client.Web.StockWebServiceReference.GetStockPriceRequestBody();
+            inValue.Body.codes = codes;
+            Stock.Client.Web.StockWebServiceReference.GetStockPriceResponse retVal = ((Stock.Client.Web.StockWebServiceReference.StockWebServiceSoap)(this)).GetStockPrice(inValue);
+            return retVal.Body.GetStockPriceResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Stock.Client.Web.StockWebServiceReference.HelloWorldResponse> Stock.Client.Web.StockWebServiceReference.StockWebServiceSoap.HelloWorldAsync(Stock.Client.Web.StockWebServiceReference.HelloWorldRequest request) {
-            return base.Channel.HelloWorldAsync(request);
+        System.Threading.Tasks.Task<Stock.Client.Web.StockWebServiceReference.GetStockPriceResponse> Stock.Client.Web.StockWebServiceReference.StockWebServiceSoap.GetStockPriceAsync(Stock.Client.Web.StockWebServiceReference.GetStockPriceRequest request) {
+            return base.Channel.GetStockPriceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Stock.Client.Web.StockWebServiceReference.HelloWorldResponse> HelloWorldAsync() {
-            Stock.Client.Web.StockWebServiceReference.HelloWorldRequest inValue = new Stock.Client.Web.StockWebServiceReference.HelloWorldRequest();
-            inValue.Body = new Stock.Client.Web.StockWebServiceReference.HelloWorldRequestBody();
-            return ((Stock.Client.Web.StockWebServiceReference.StockWebServiceSoap)(this)).HelloWorldAsync(inValue);
+        public System.Threading.Tasks.Task<Stock.Client.Web.StockWebServiceReference.GetStockPriceResponse> GetStockPriceAsync(string codes) {
+            Stock.Client.Web.StockWebServiceReference.GetStockPriceRequest inValue = new Stock.Client.Web.StockWebServiceReference.GetStockPriceRequest();
+            inValue.Body = new Stock.Client.Web.StockWebServiceReference.GetStockPriceRequestBody();
+            inValue.Body.codes = codes;
+            return ((Stock.Client.Web.StockWebServiceReference.StockWebServiceSoap)(this)).GetStockPriceAsync(inValue);
         }
     }
 }

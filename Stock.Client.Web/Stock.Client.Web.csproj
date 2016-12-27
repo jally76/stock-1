@@ -159,10 +159,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Service References\StockWebServiceReference\Stock.Client.Web.StockWebServiceReference.HelloWorldResponse.datasource">
+    <Content Include="Service References\StockWebServiceReference\Stock.Client.Web.StockWebServiceReference.GetStockPriceResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\StockWebServiceReference\StockService.disco" />
+    <None Include="Service References\StockWebServiceReference\StockWebService.disco" />
     <None Include="Service References\StockWebServiceReference\configuration91.svcinfo" />
     <None Include="Service References\StockWebServiceReference\configuration.svcinfo" />
     <None Include="Service References\StockWebServiceReference\Reference.svcmap">
@@ -183,7 +183,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <None Include="Service References\StockWebServiceReference\StockService.wsdl" />
+    <None Include="Service References\StockWebServiceReference\StockWebService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

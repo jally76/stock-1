@@ -13,6 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.Client.Console", "Sto
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.Client.Web", "Stock.Client.Web\Stock.Client.Web.csproj", "{3FF5EB97-B1F9-4BF3-B61A-1A5ECB2A8BF8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6E8B2347-C2AB-46C4-A6B1-5C86C45A5082} = {6E8B2347-C2AB-46C4-A6B1-5C86C45A5082}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.Core", "Stock.Core\Stock.Core.csproj", "{28B2DCE4-A1EA-499C-820A-D5765E2D3096}"
 EndProject
