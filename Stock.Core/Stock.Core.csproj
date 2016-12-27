@@ -55,6 +55,9 @@
   <ItemGroup>
     <Compile Include="Domain\Company.cs" />
     <Compile Include="Domain\User.cs" />
+    <Compile Include="Dto\TickerDto.cs" />
+    <Compile Include="Dto\CompanyDto.cs" />
+    <Compile Include="Dto\UserDto.cs" />
     <Compile Include="EntityFramework\StockDatabaseContext.cs" />
     <Compile Include="Migrations\201612271549540_Migration0001.cs" />
     <Compile Include="Migrations\201612271549540_Migration0001.Designer.cs">
@@ -62,7 +65,11 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Common\LoginResult.cs" />
+    <Compile Include="Services\Common\OperationResult.cs" />
     <Compile Include="Services\MigrationService.cs" />
+    <Compile Include="Services\CompanyService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -73,6 +80,7 @@
       <DependentUpon>201612271549540_Migration0001.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

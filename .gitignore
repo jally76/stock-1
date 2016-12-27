@@ -15,3 +15,4 @@ Stock.Core.Migrations/bin/
 Stock.Core.Migrations/obj/
 Stock.WebService/Bin/
 Stock.WebService/obj/
+Stock.Database/
