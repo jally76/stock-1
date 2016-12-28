@@ -48,7 +48,9 @@ namespace Stock.Core.Services
             var user = _dataProvider.SingleOrDefault<User>(u => u.Email == email);
             if (user == null)
             {
-                throw new Exception($"User with email {email} not exists");
+                result.IsAuthenticated = false;
+                result.Message = $"User with email {email} not exists";
+                return result;
             }
 
             var isAuthenticated = user.IsValidPassword(password);
@@ -56,10 +58,12 @@ namespace Stock.Core.Services
             {
                 result.IsAuthenticated = true;
                 result.User = Mapper.Map<UserDto>(user);
+                return result;
             }
             else
             {
-                throw new Exception($"Incorrect password");
+                result.IsAuthenticated = false;
+                result.Message = "Incorrect password";
             }
 
             return result;
