@@ -68,6 +68,7 @@ namespace Stock.Client.Web.App_Start
             kernel.Bind<IDataProvider>().ToMethod(c => new EntityFrameworkDataProvider(ConnectionString));
 
             kernel.Bind<IUserService>().To<UserService>().InRequestScope();
+            kernel.Bind<ICompanyService>().To<CompanyService>().InRequestScope();
         }
 
         private static string ConnectionString { get { return ConfigurationManager.ConnectionStrings["stock-database"].ConnectionString; } }

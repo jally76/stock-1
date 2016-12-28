@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Linq;
+using System.Web.Mvc;
+using Newtonsoft.Json;
 using Ninject;
 using Stock.Client.Web.StockWebServiceReference;
 using Stock.Client.Web.Tools;
@@ -12,11 +15,39 @@ namespace Stock.Client.Web.Controllers
         [Inject]
         public IUserService UserService { get; set; }
 
+        [Inject]
+        public ICompanyService CompanyService { get; set; }
+
         [PermissionFilter]
         public ActionResult Index()
         {
             var userDto = UserService.Get(Request.GetToken());
             return View(userDto);
+        }
+
+        [PermissionFilter]
+        public ActionResult CompaniesList(string subString)
+        {
+            var companies = CompanyService.Find(subString);
+            return Json(companies, JsonRequestBehavior.AllowGet);
+        }
+
+        [PermissionFilter]
+        public ActionResult AddTicker(string companyId)
+        {
+            Guid companyGuid;
+            if(Guid.TryParse(companyId, out companyGuid))
+                UserService.AddTicker(Request.GetToken(), companyGuid);
+
+            return Json("Success", JsonRequestBehavior.AllowGet);
+        }
+
+        [PermissionFilter]
+        public ActionResult DeleteTicker(Guid companyId)
+        {
+            UserService.DeleteTicker(Request.GetToken(), companyId);
+
+            return Json("Success", JsonRequestBehavior.AllowGet);
         }
 
         [PermissionFilter]
