@@ -9,7 +9,7 @@ namespace Stock.Client.Web.Tools
             if (filterContext.RequestContext.HttpContext.Request.IsAuthorized())
                 return;
 
-            filterContext.Result = new RedirectResult("~/Errors/Unauthorized");
+            filterContext.Result = new RedirectResult("~/Auth/Logon");
         }
     }
 }

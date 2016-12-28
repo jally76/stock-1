@@ -7,7 +7,7 @@ namespace Stock.Client.Web.Tools
     {
         public static bool IsAuthorized(this HttpRequestBase request)
         {
-            return string.IsNullOrEmpty(request.Cookies["auth"]?.Value);
+            return !string.IsNullOrEmpty(request.Cookies["auth"]?.Value);
         }
 
         public static void SetAuth(this HttpResponseBase response, string email)

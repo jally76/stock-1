@@ -13,7 +13,8 @@ namespace Stock.Client.Web.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [PermissionFilter]
+        public ActionResult TestWebService()
         {
             ViewBag.Message = "Your application description page.";
 

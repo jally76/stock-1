@@ -18,7 +18,8 @@
                         if (Request.IsAuthorized())
                         {
                             <li>@Html.PermissionActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.PermissionActionLink("About", "About", "Home")</li>
+                            <li>@Html.PermissionActionLink("WebService", "TestWebService", "Home")</li>
+                            <li>@Html.PermissionActionLink("Logout", "Logout", "Auth")</li>
                         }
                         else
                         {
