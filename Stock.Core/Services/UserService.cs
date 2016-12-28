@@ -13,7 +13,7 @@ namespace Stock.Core.Services
     {
         UserDto Register(string name, string email, string password);
         LoginResult Login(string email, string password);
-        UserDto Get(string token);
+        UserDto Get(string email);
         void AddTicker(string email, Guid companyId);
         void DeleteTicker(string email, Guid companyId);
     }
@@ -69,9 +69,11 @@ namespace Stock.Core.Services
             return result;
         }
 
-        public UserDto Get(string token)
+        public UserDto Get(string email)
         {
-            throw new NotImplementedException();
+            var user = _dataProvider.SingleOrDefault<User>(u => u.Email == email);
+
+            return Mapper.Map<UserDto>(user);
         }
 
         public void AddTicker(string email, Guid companyId)
