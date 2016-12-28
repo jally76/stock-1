@@ -2,6 +2,7 @@
 using System.Web;
 using System.Web.Mvc;
 using Ninject;
+using Stock.Client.Web.Tools;
 using Stock.Client.Web.ViewModels;
 using Stock.Core.Dto;
 using Stock.Core.Services;
@@ -24,9 +25,7 @@ namespace Stock.Client.Web.Controllers
 
             if (result.IsAuthenticated)
             {
-                var authCookie = new HttpCookie("auth") { Value = result.User.Email, Expires = DateTime.Now.AddDays(30) };
-                Response.Cookies.Set(authCookie);
-
+                Response.SetAuth(result.User.Email);
                 return RedirectToAction("Index", "Home");
             }
             else

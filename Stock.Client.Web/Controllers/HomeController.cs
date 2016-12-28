@@ -1,12 +1,13 @@
 ﻿using System.Web.Mvc;
 using Stock.Client.Web.StockWebServiceReference;
+using Stock.Client.Web.Tools;
 using Stock.Client.Web.ViewModels;
-using Stock.Core.Dto;
 
 namespace Stock.Client.Web.Controllers
 {
     public class HomeController : Controller
     {
+        [PermissionFilter]
         public ActionResult Index()
         {
             return View();
@@ -26,13 +27,6 @@ namespace Stock.Client.Web.Controllers
             };
 
             return View(model);
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }
