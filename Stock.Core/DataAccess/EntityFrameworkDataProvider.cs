@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Stock.Core.DataAccess
 {
-    public class EntityFrameworkDataProvider : DbContext, IDataProvider
+    public partial class EntityFrameworkDataProvider : DbContext, IDataProvider
     {
         public EntityFrameworkDataProvider(string connectionString) : base(connectionString)
         {

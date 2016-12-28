@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using NLog;
-using Stock.Core.EntityFramework;
+using Stock.Core.DataAccess;
 using Stock.Core.Migrations;
 
 namespace Stock.Client.Web
@@ -32,13 +32,13 @@ namespace Stock.Client.Web
             try
             {
                 Logger.Debug("Starting migrate database");
-                var databaseContext = DependencyResolver.Current.GetService<StockDatabaseContext>();
+                var databaseContext = DependencyResolver.Current.GetService<EntityFrameworkDataProvider>();
 
                 var connectionString = databaseContext.Database.Connection.ConnectionString;
                 if (!Database.Exists(connectionString))
                     throw new Exception($"Database not exist ({connectionString})");
 
-                Database.SetInitializer(new MigrateDatabaseToLatestVersion<StockDatabaseContext, StockDatabaseConfiguration>());
+                Database.SetInitializer(new MigrateDatabaseToLatestVersion<EntityFrameworkDataProvider, StockDatabaseConfiguration>());
 
                 var migrator = new DbMigrator(new StockDatabaseConfiguration {CommandTimeout = 0});
                 migrator.Update();

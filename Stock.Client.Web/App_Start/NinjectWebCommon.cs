@@ -1,3 +1,7 @@
+using System.Configuration;
+using Stock.Core.DataAccess;
+using Stock.Core.Services;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Stock.Client.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Stock.Client.Web.App_Start.NinjectWebCommon), "Stop")]
 
@@ -61,6 +65,12 @@ namespace Stock.Client.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-        }        
+            kernel.Bind<IDataProvider>().ToMethod(c => new EntityFrameworkDataProvider(ConnectionString));
+
+            kernel.Bind<IUserService>().To<UserService>().InRequestScope();
+        }
+
+        private static string ConnectionString { get { return ConfigurationManager.ConnectionStrings["stock-database"].ConnectionString; } }
+
     }
 }

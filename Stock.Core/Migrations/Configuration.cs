@@ -1,3 +1,5 @@
+using Stock.Core.DataAccess;
+
 namespace Stock.Core.Migrations
 {
     using System;
@@ -5,14 +7,14 @@ namespace Stock.Core.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Stock.Core.EntityFramework.StockDatabaseContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<EntityFrameworkDataProvider>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Stock.Core.EntityFramework.StockDatabaseContext context)
+        protected override void Seed(EntityFrameworkDataProvider context)
         {
             //  This method will be called after migrating to the latest version.
 

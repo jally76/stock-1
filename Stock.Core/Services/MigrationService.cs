@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NLog;
-using Stock.Core.EntityFramework;
 
 namespace Stock.Core.Services
 {

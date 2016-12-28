@@ -75,7 +75,7 @@
     <Compile Include="Dto\TickerDto.cs" />
     <Compile Include="Dto\CompanyDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
-    <Compile Include="EntityFramework\StockDatabaseContext.cs" />
+    <Compile Include="DataAccess\StockDatabaseContext.cs" />
     <Compile Include="Migrations\201612271549540_Migration0001.cs" />
     <Compile Include="Migrations\201612271549540_Migration0001.Designer.cs">
       <DependentUpon>201612271549540_Migration0001.cs</DependentUpon>
@@ -97,7 +97,9 @@
       <DependentUpon>201612271549540_Migration0001.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="EntityFramework\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

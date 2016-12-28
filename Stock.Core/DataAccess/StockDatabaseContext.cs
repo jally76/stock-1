@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using Stock.Core.Domain;
 
-namespace Stock.Core.EntityFramework
+namespace Stock.Core.DataAccess
 {
-    public class StockDatabaseContext : DbContext
+    public partial class EntityFrameworkDataProvider
     {
-        public StockDatabaseContext() : base("name=stock-database") { }
+        public EntityFrameworkDataProvider() : base("name=stock-database") { }
 
         public DbSet<User> Users { get; set; }
 
