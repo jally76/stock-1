@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Newtonsoft.Json;
@@ -53,6 +54,18 @@ namespace Stock.Client.Web.Controllers
         public ActionResult GetUserTicker()
         {
             var userDto = UserService.Get(Request.GetToken());
+
+            var client = new StockWebServiceSoapClient();
+            var result = client.GetStockPrice(string.Join(",", userDto.Tickers.Select(t => t.Code)));
+            client.Close();
+
+            var dictionary = JsonConvert.DeserializeObject<Dictionary<string, int>>(result);
+
+            foreach (var ticker in userDto.Tickers)
+            {
+                ticker.Price = dictionary[ticker.Code];
+            }
+
             return PartialView("UserPartialView", userDto);
         }
 
