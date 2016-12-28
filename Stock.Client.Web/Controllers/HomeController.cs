@@ -21,8 +21,7 @@ namespace Stock.Client.Web.Controllers
         [PermissionFilter]
         public ActionResult Index()
         {
-            var userDto = UserService.Get(Request.GetToken());
-            return View(userDto);
+            return View();
         }
 
         [PermissionFilter]
@@ -48,6 +47,13 @@ namespace Stock.Client.Web.Controllers
             UserService.DeleteTicker(Request.GetToken(), companyId);
 
             return Json("Success", JsonRequestBehavior.AllowGet);
+        }
+
+        [PermissionFilter]
+        public ActionResult GetUserTicker()
+        {
+            var userDto = UserService.Get(Request.GetToken());
+            return PartialView("UserPartialView", userDto);
         }
 
         [PermissionFilter]

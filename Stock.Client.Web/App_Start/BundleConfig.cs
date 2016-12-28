@@ -29,6 +29,7 @@ namespace Stock.Client.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/themes/base/jquery-ui.css",
+                      "~/Content/font-awesome.css",
                       "~/Content/site.css"));
         }
     }

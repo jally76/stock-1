@@ -11,22 +11,26 @@
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @{
-                        if (Request.IsAuthorized())
-                        {
-                            <li>@Html.PermissionActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.PermissionActionLink("WebService", "TestWebService", "Home")</li>
-                            <li>@Html.PermissionActionLink("Logout", "Logout", "Auth")</li>
+            <div class="navbar-header">
+
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        @{
+                            if (Request.IsAuthorized())
+                            {
+                                <li><a href="#">@Request.GetToken()</a></li>
+                                <li>@Html.PermissionActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.PermissionActionLink("WebService", "TestWebService", "Home")</li>
+                                <li>@Html.PermissionActionLink("Logout", "Logout", "Auth")</li>
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink("Login", "Logon", "Auth")</li>
+                            }
                         }
-                        else
-                        {
-                            <li>@Html.ActionLink("Login", "Logon", "Auth")</li>
-                        }
-                    }
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
