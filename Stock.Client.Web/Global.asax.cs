@@ -23,7 +23,7 @@ namespace Stock.Client.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
-            MigrateDatabase();
+          //  MigrateDatabase();
         }
 
         //TODO move this code to Stock.Core in MigrationService
