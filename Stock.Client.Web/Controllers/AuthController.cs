@@ -1,11 +1,11 @@
-﻿using System;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using Ninject;
 using Stock.Client.Web.Tools;
 using Stock.Client.Web.ViewModels;
 using Stock.Core.Dto;
 using Stock.Core.Services;
+using Stock.Core.Services.Common;
 
 namespace Stock.Client.Web.Controllers
 {
@@ -21,7 +21,12 @@ namespace Stock.Client.Web.Controllers
 
         public ActionResult Login(LogonViewModel model)
         {
-            var result = UserService.Login(model.Email, model.Password);
+            return InternalLogin(model.Email, model.Password);
+        }
+
+        private ActionResult InternalLogin(string email, string password)
+        {
+            var result = UserService.Login(email, password);
 
             if (result.IsAuthenticated)
             {
@@ -30,7 +35,7 @@ namespace Stock.Client.Web.Controllers
             }
             else
             {
-                return RedirectToAction("Logon", new LogonViewModel { Email = model.Email, Message = result.Message });
+                return RedirectToAction("Logon", new LogonViewModel {Email = email, Message = result.Message});
             }
         }
 
@@ -52,16 +57,19 @@ namespace Stock.Client.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Register()
+        public ActionResult Register(RegisterViewModel model)
         {
-            return View();
+            return View(model);
         }
 
         public ActionResult Register(UserDto dto)
         {
             var result = UserService.Register(dto.Name, dto.Email, dto.Password);
-            
-            return RedirectToAction("Index", "Home");
+
+            if (result.StatusOpearion == StatusOpearion.Success)
+                return InternalLogin(dto.Email, dto.Password);
+
+            return RedirectToAction("Register", new RegisterViewModel { Email = dto.Email, Name = dto.Name, Message = result.Message });
         }
     }
 }

@@ -6,6 +6,7 @@ using NSubstitute;
 using NUnit.Framework;
 using Stock.Core.Domain;
 using Stock.Core.Services;
+using Stock.Core.Services.Common;
 
 namespace Stock.Core.Tests
 {
@@ -25,7 +26,9 @@ namespace Stock.Core.Tests
         {
             DataProvider.Where(Arg.Any<Expression<Func<User, bool>>>()).Returns(new List<User> { new User() }.AsQueryable());
 
-            Assert.Throws(typeof(Exception), () => _sut.Register("userName", "qqq@gmail.com", "123"));
+            var result = _sut.Register("userName", "qqq@gmail.com", "123");
+
+            Assert.AreEqual(StatusOpearion.Error, result.StatusOpearion);
 
             DataProvider.DidNotReceive().Create(Arg.Any<User>());
         }
@@ -35,9 +38,10 @@ namespace Stock.Core.Tests
         {
             DataProvider.Where(Arg.Any<Expression<Func<User, bool>>>()).Returns(new List<User>().AsQueryable());
 
-            Assert.DoesNotThrow(() => _sut.Register("userName", "qqq@gmail.com", "123"));
+            var result = _sut.Register("userName", "qqq@gmail.com", "123");
 
             DataProvider.Received().Create(Arg.Any<User>());
+            Assert.AreEqual(StatusOpearion.Success, result.StatusOpearion);
         }
     }
 }

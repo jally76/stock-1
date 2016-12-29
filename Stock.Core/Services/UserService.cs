@@ -11,7 +11,7 @@ namespace Stock.Core.Services
 {
     public interface IUserService
     {
-        UserDto Register(string name, string email, string password);
+        OperationResult Register(string name, string email, string password);
         LoginResult Login(string email, string password);
         UserDto Get(string email);
         void AddTicker(string email, Guid companyId);
@@ -29,16 +29,22 @@ namespace Stock.Core.Services
 
         protected MappingEngine Mapper => AutoMapperConfiguration.Mapper;
 
-        public UserDto Register(string name, string email, string password)
+        public OperationResult Register(string name, string email, string password)
         {
+            var result = new OperationResult();
+
             var query = _dataProvider.Where<User>(u => u.Email == email);
-            if(query.Any())
-                throw new Exception($"Exists user with email: {email}");
+            if (query.Any())
+            {
+                result.StatusOpearion = StatusOpearion.Error;
+                result.Message = $"Exists user with email: {email}";
+                return result;
+            }
 
             var user = new User(email, name, password);
             user = _dataProvider.Create(user);
             var dto = Mapper.Map<UserDto>(user);
-            return dto;
+            return new OperationResult { StatusOpearion = StatusOpearion.Success};
         }
 
         public LoginResult Login(string email, string password)

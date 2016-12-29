@@ -12,7 +12,6 @@ namespace Stock.Core.Services
     public interface ICompanyService
     {
         IEnumerable<CompanyDto> Find(string findSubString, int count = 10);
-        IEnumerable<CompanyDto> Select(string param);
     }
 
     public class CompanyService : ICompanyService
@@ -31,11 +30,6 @@ namespace Stock.Core.Services
             var query = _dataProvider.Where<Company>(c => c.Name.Contains(findSubString) || c.StockCode.Contains(findSubString)).Take(count);
             
             return query.Project(Mapper).To<CompanyDto>();
-        }
-
-        public IEnumerable<CompanyDto> Select(string param)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

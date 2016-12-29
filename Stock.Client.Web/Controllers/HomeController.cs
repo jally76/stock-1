@@ -57,9 +57,6 @@ namespace Stock.Client.Web.Controllers
             var userDto = UserService.Get(Request.GetToken());
 
             var client = new StockWebServiceSoapClient();
-
-         //   client
-
             var result = client.GetStockPrice(string.Join(",", userDto.Tickers.Select(t => t.Code)));
             client.Close();
 
@@ -71,27 +68,6 @@ namespace Stock.Client.Web.Controllers
             }
 
             return PartialView("UserPartialView", userDto);
-        }
-
-        [PermissionFilter]
-        public ActionResult TestWebService()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            //UsernameToken userToken;
-            //userToken = new UsernameToken("", "",
-            //                              PasswordOption.SendNone);
-
-            var client = new StockWebServiceSoapClient();
-            var result = client.GetStockPrice("AAA,GOOG");
-            client.Close();
-
-            var model = new AboutViewModel
-            {
-                Result = result
-            };
-
-            return View(model);
         }
     }
 }
