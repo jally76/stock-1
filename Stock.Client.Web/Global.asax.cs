@@ -23,7 +23,7 @@ namespace Stock.Client.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
-          //  MigrateDatabase();
+            MigrateDatabase();
         }
 
         //TODO move this code to Stock.Core in MigrationService
@@ -40,7 +40,7 @@ namespace Stock.Client.Web
 
                 Database.SetInitializer(new MigrateDatabaseToLatestVersion<EntityFrameworkDataProvider, StockDatabaseConfiguration>());
 
-                var migrator = new DbMigrator(new StockDatabaseConfiguration {CommandTimeout = 0});
+                var migrator = new DbMigrator(new StockDatabaseConfiguration { CommandTimeout = 0});
                 migrator.Update();
 
 
