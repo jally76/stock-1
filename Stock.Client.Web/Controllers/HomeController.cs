@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Microsoft.Web.Services3.Security.Tokens;
 using Newtonsoft.Json;
 using Ninject;
-using Stock.Client.Web.StockWebServiceReference;
+using Stock.Client.Web.ServiceReference1;
 using Stock.Client.Web.Tools;
 using Stock.Client.Web.ViewModels;
 using Stock.Core.Services;
@@ -56,6 +57,9 @@ namespace Stock.Client.Web.Controllers
             var userDto = UserService.Get(Request.GetToken());
 
             var client = new StockWebServiceSoapClient();
+
+         //   client
+
             var result = client.GetStockPrice(string.Join(",", userDto.Tickers.Select(t => t.Code)));
             client.Close();
 
@@ -73,6 +77,10 @@ namespace Stock.Client.Web.Controllers
         public ActionResult TestWebService()
         {
             ViewBag.Message = "Your application description page.";
+
+            //UsernameToken userToken;
+            //userToken = new UsernameToken("", "",
+            //                              PasswordOption.SendNone);
 
             var client = new StockWebServiceSoapClient();
             var result = client.GetStockPrice("AAA,GOOG");

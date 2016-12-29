@@ -6,7 +6,8 @@
                 foreach (var ticker in Model.Tickers)
                 {
             <div class="list-group-item" title="@ticker.Company">
-                @ticker.Code
+                @ticker.Company
+                [@ticker.Code]
                 @ticker.Price
                 <span class="pull-right"><a class="delete-ticker" data-companyid="@ticker.Id" href="#"><i class="fa fa-trash-o"></i></a></span>
             </div>

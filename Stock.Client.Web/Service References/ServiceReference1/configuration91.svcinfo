@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="a0xbNHFxUAquVIrs0dMcYvLliRY=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="SyiFVZ8FO4Iq6S1h53pOrNWHIwM=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="StockWebServiceSoap">
       <properties>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="StockWebServiceSoap" contract="StockWebServiceReference.StockWebServiceSoap" bindingType="basicHttpBinding" address="http://localhost:50387/StockWebService.asmx" bindingConfiguration="StockWebServiceSoap">
+    <endpoint name="StockWebServiceSoap" contract="ServiceReference1.StockWebServiceSoap" bindingType="basicHttpBinding" address="http://localhost:50387/StockWebService.asmx" bindingConfiguration="StockWebServiceSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:50387/StockWebService.asmx</serializedValue>
@@ -127,7 +127,7 @@
           <serializedValue>StockWebServiceSoap</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>StockWebServiceReference.StockWebServiceSoap</serializedValue>
+          <serializedValue>ServiceReference1.StockWebServiceSoap</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

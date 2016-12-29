@@ -7,12 +7,17 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-8">
-        <input id="tickerSelector" class="form-control">
-        <input id="companyId" type="hidden">
-        <button type="button" class="btn btn-primary" id="add-ticker">Add ticker</button>
+
+
+            <div class="input-group">
+                <input id="tickerSelector" type="text" class="form-control">
+                <input id="companyId" type="hidden">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-primary" id="add-ticker">Add ticker</button>
+                </div>
+            </div>
 
         <div id="userTickers">
-           @*@Html.Partial("UserPartialView", Model)*@
         </div>
     </div>
     <div class="col-md-2">
@@ -36,6 +41,9 @@
         $(function () {
 
             refreshUserTickers();
+            setInterval(function () {
+                refreshUserTickers();
+            }, 10000);
 
             $("#add-ticker").click(function (event) {
 
@@ -44,6 +52,7 @@
                     data: { companyId: $('#companyId').val() }
                 })
                 .success(function (data) {
+                    $("#tickerSelector").val("");
                     refreshUserTickers();
                 });
 

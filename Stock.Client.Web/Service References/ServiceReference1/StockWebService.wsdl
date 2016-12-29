@@ -16,6 +16,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetStockPriceSigned">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStockPriceSignedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStockPriceSignedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetStockPriceSoapIn">
@@ -24,10 +38,20 @@
   <wsdl:message name="GetStockPriceSoapOut">
     <wsdl:part name="parameters" element="tns:GetStockPriceResponse" />
   </wsdl:message>
+  <wsdl:message name="GetStockPriceSignedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStockPriceSigned" />
+  </wsdl:message>
+  <wsdl:message name="GetStockPriceSignedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStockPriceSignedResponse" />
+  </wsdl:message>
   <wsdl:portType name="StockWebServiceSoap">
     <wsdl:operation name="GetStockPrice">
       <wsdl:input message="tns:GetStockPriceSoapIn" />
       <wsdl:output message="tns:GetStockPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockPriceSigned">
+      <wsdl:input message="tns:GetStockPriceSignedSoapIn" />
+      <wsdl:output message="tns:GetStockPriceSignedSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="StockWebServiceSoap" type="tns:StockWebServiceSoap">
@@ -41,11 +65,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetStockPriceSigned">
+      <soap:operation soapAction="http://tempuri.org/GetStockPriceSigned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="StockWebServiceSoap12" type="tns:StockWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetStockPrice">
       <soap12:operation soapAction="http://tempuri.org/GetStockPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockPriceSigned">
+      <soap12:operation soapAction="http://tempuri.org/GetStockPriceSigned" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
